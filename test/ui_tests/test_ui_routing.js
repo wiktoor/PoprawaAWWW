@@ -97,7 +97,7 @@ describe('Testing buttons and ui', () => {
     const logoutButton = await driver.wait(until.elementLocated(By.css('.logout')), 10000);
     await logoutButton.click();
 
-    const spisWycieczek = await driver.wait(until.elementLocated(By.css('.spis_wycieczek')), 10000);
+    const spisWycieczek = await driver.wait(until.elementLocated(By.css('.trip_list')), 10000);
 
     assert.exists(spisWycieczek);
   });
@@ -108,33 +108,6 @@ describe('Testing buttons and ui', () => {
 
     const navbar = await getNavbar(driver);
     await navbar.findElement(By.css('.login')).click();
-
-    await driver.wait(until.elementLocated(By.css('form')), 10000);
-
-    await userSignInFill(driver, {
-      email: 'testuser@test.com',
-      password: 'test1234',
-    });
-
-    await driver.findElement(By.css('button')).click();
-
-    const mainPageLogoButton = await driver.wait(until.elementLocated(By.css('#logo')), 10000);
-    await mainPageLogoButton.click();
-
-    const profileButton = await driver.wait(until.elementLocated(By.css('.prof')), 10000);
-    await profileButton.click();
-
-    const spisZgloszen = await driver.wait(until.elementLocated(By.css('.spis_zgloszen')), 10000);
-
-    assert.exists(spisZgloszen);
-  });
-
-  it('Profile redirects to valid session login', async () => {
-    await driver.get('http://localhost:3000/logout');
-    await driver.get('http://localhost:3000/main');
-
-    const navbar = await getNavbar(driver);
-    await navbar.findElement(By.css('.prof')).click();
 
     await driver.wait(until.elementLocated(By.css('form')), 10000);
 

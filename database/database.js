@@ -5,8 +5,8 @@ const zgloszenieModel = require('./zgloszenie');
 const userModel = require('./user');
 
 // Połączenie z bazą danych
-const sequelize = new Sequelize('awww', 'postgres', 'mysecretpassword', {
-    host: '127.0.0.1',
+const sequelize = new Sequelize('bd', 'wc429131', '2dzi1ase3lka7', {
+    host: 'lkdb',
     dialect: 'postgres'
 });
 

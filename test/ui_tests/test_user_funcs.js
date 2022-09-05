@@ -88,7 +88,7 @@ describe("Testing user's functionalities", () => {
     const logout = await driver.wait(until.elementLocated(By.css('.logout')), 10000);
     await logout.click();
 
-    const spisWycieczek = await driver.wait(until.elementLocated(By.css('.spis_wycieczek')), 10000);
+    const spisWycieczek = await driver.wait(until.elementLocated(By.css('.trip_list')), 10000);
 
     assert.exists(spisWycieczek);
   });
@@ -113,46 +113,6 @@ describe("Testing user's functionalities", () => {
     assert.exists(spisZgloszen2);
   });
 
-  it('Good profile page bookings - reserved before user created', async () => {
-    await driver.get('http://localhost:3000/logout');
-    await driver.get('http://localhost:3000/book/1');
-
-    await bookFill(driver, {
-      first_name: 'Radosław',
-      last_name: 'Radosny',
-      email: 'superradzio@wp.pl',
-      liczba_miejsc: 2,
-    });
-
-    await clickButton(driver);
-
-    await driver.get('http://localhost:3000/signup');
-
-    await userSignUpFill(driver, {
-      first_name: 'Radosław',
-      last_name: 'Radosny',
-      email: 'superradzio@wp.pl',
-      password: 'qwerty',
-      password_conf: 'qwerty',
-    });
-
-    await clickButton(driver);
-
-    await driver.get('http://localhost:3000/login');
-
-    await userSignInFill(driver, {
-      email: 'superradzio@wp.pl',
-      password: 'qwerty',
-    });
-
-    await clickButton(driver);
-
-    await driver.wait(until.elementLocated(By.css('.spis_zgloszen')), 10000);
-    const zgloszenia = await driver.findElements(By.css('.zgloszenie'));
-
-    assert.equal(1, zgloszenia.length);
-  });
-
   it('Book after login - filled', async () => {
     await driver.get('http://localhost:3000/logout');
     await driver.get('http://localhost:3000/login');
@@ -175,50 +135,6 @@ describe("Testing user's functionalities", () => {
     const succMsg = await driver.wait(until.elementLocated(By.css('.succ')), 10000);
 
     assert.exists(succMsg);
-  });
-
-  it('Good profile page bookings - reserved afetr user created, but no login', async () => {
-    await driver.get('http://localhost:3000/logout');
-    await driver.get('http://localhost:3000/signup');
-
-    await userSignUpFill(driver, {
-      first_name: 'testuser3',
-      last_name: 'testuser3',
-      email: 'test@testuser3.pl',
-      password: 'lololo',
-      password_conf: 'lololo',
-    });
-
-    await clickButton(driver);
-
-    await driver.wait(until.elementLocated(By.css('form')), 10000);
-
-    const user = await getUser(db, 'test@testuser3.pl');
-
-    await driver.get('http://localhost:3000/book/2');
-
-    await bookFill(driver, {
-      first_name: 'testuser3',
-      last_name: 'testuser3',
-      email: 'test@testuser3.pl',
-      liczba_miejsc: 2,
-    });
-
-    await clickButton(driver);
-
-    await driver.get('http://localhost:3000/login');
-
-    await userSignInFill(driver, {
-      email: 'test@testuser3.pl',
-      password: 'lololo',
-    });
-
-    await clickButton(driver);
-
-    const zgloszenia = await driver.findElements(By.css('.zgloszenie'));
-
-    assert.equal(1, zgloszenia.length);
-    assert.exists(user);
   });
 
   after(async () => driver.quit());

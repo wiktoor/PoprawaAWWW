@@ -32,7 +32,7 @@ describe('Basic routing tests', () => {
   it('Main site', async () => {
     await driver.get('http://localhost:3000/main');
 
-    const shouldExist = await driver.findElement(By.css('.spis_wycieczek'));
+    const shouldExist = await driver.findElement(By.css('.trip_list'));
     assert.exists(shouldExist, 'is not null');
   });
 
