@@ -1,0 +1,169 @@
+body {
+    background-color: #97e8a0;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    max-width: 1920px;
+    align-content: center;
+}
+
+nav {
+    background-color: #60f071;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+}
+
+footer {
+    display: flex;
+    background-color: #0ca61d;
+    justify-content: space-evenly;
+    margin-top: 2em;
+    border-radius: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+#zdjecie {
+    margin: 2px;
+    float: left;
+    width: 15%;
+    object-fit: contain;
+}
+
+ul {
+    list-style-type: "- ";
+}
+
+.buttons_down {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.button {
+    background-color: #266e1b;
+    padding: 1px;
+    height: auto;
+    border-color: black;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: #266e1b;
+}
+
+.button {
+    color: black;
+    text-decoration: none !important;
+}
+
+.button-up {
+    padding: 3px;
+    height: 1em;
+    min-width: 5em;
+    text-align: center;
+}
+
+.button-up:hover {
+    background-color: #DAB88B;
+}
+
+#logo {
+    width: 100px;
+    object-fit: contain;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.trip_list {
+    flex: 3;
+}
+
+.spis_zgloszen {
+    flex: 3;
+}
+
+.zgloszenie {
+    margin: 2px;
+    margin-top: 2em;
+    border-style: none none solid none;
+    border-color: #B7CADB; 
+}
+
+aside {
+    flex: 1;
+}
+
+.wycieczka {
+    margin: 2px;
+    margin-top: 2em;
+    border-style: none none solid none;
+    border-color: #B7CADB;
+
+}
+
+.wycieczka_footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 650px) {
+    main {
+      flex-direction: column;
+    }
+    aside .porady {
+        display: none;
+    }
+    nav {
+        flex-direction: column;
+    }
+  }
+
+  .error {
+      background-color: red;
+  }
+
+  .empty::after{
+      content: "This field cannot be empty";
+  }
+
+  .too_long::after {
+      content: "This field cannot exceed 40 characters"
+  }
+
+  #my_modal {
+    display: flex; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    text-align: center;
+  }
+
+  #my_modal_content {
+      position: relative;
+      width: 35%;
+      height: 35%;
+      background-color: white;
+  }
+
+  #ok {
+      width: 60px;
+      height: 20px;
+  }

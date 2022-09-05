@@ -1,0 +1,24 @@
+html
+    head
+        meta(charset='UTF-8')
+        link(rel='stylesheet' href='/styles.css')
+        title Strona
+    nav
+        a(href='/main')
+            img#logo(src='/img/logo.jpg' alt='logo')
+        a.button.button-up(href='/main') Wycieczki lotnicze
+        a.button.button-up(href='/main') Wycieczki autokarowe
+        if !context.isLoggedIn
+            a.button.button-up.login(href='/login') Zaloguj się
+            a.button.button-up.signup(href='/signup') Zarejestruj się
+        else 
+            a.button.button-up.prof(href='/profile') Moje konto
+            a.button.button-up.logout(href='/logout') Wyloguj się
+    body
+    block content 
+    footer 
+        p Biuro podrozy, 2022
+        p O firmie 
+        p Polityka prywatności
+        p Kontakt
+            

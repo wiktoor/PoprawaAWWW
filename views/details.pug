@@ -1,0 +1,27 @@
+extends base.pug
+block content
+  h2(class="succ")=context.msg
+  img#zdjecie(src=context.trip.obrazek alt='zdjecie')
+  h1 Wspania&lstrok;a wycieczka ID: #{ context.trip.id }
+  p=context.trip.krotki_opis
+  h2=context.trip.tytul
+  p=context.trip.opis
+  h2
+    | Jeszcze jeden naglowek
+  ul
+    li data poczatku #{ context.trip.data_poczatku }
+    li data konca #{ context.trip.data_konca }
+    li temperatury: takie w sam raz
+    li warto zabrac: troche ubran
+    li cena wycieczki to #{ context.trip.cena }
+    li(class="miejsc") miejsc: #{ context.trip.liczba_dostepnych_miejsc }
+
+  h2(class="prog")
+    | Program wycieczki
+  ol
+    li Odwiedziny w miejscu
+    li Obiad
+    li Wyprawa na koniec swiata
+  .buttons_down
+    a#button_left.button(href='/main') Powrot
+    a#button_right.button(href='/book/' + context.trip.id) Rezerwacje

@@ -1,0 +1,13 @@
+extends base.pug
+
+block content
+  h3(class="welcome") Witaj #{ context.user.first_name } #{ context.user.last_name }, twoje zgłoszenia:    
+  main
+    .spis_zgloszen
+      each val, index in context.bookings
+        section.zgloszenie
+          h1 #{ index + 1 } Id wycieczki: #{ val.myWycieczkaId }
+          h5 Treść zgłoszenia
+          ul
+            li Imię i nazwisko zgłaszającego: #{ val.imie } #{ val.nazwisko }
+            li Liczba zarezerwowanych miejsc: #{ val.liczba_miejsc }

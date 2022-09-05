@@ -1,0 +1,35 @@
+extends base.pug
+
+block content
+  main
+    .trip_list
+      each val, index in context.trips
+        section.wycieczka
+          img(src=val.obrazek alt='trip' width='100' height='100')
+          h1= val.nazwa
+          h5= val.opis
+          p Cena: #{ val.cena }
+          div(class="wycieczka_footer")
+            a(href='/book/' + val.id) Zarezerwuj &gt;&gt;
+            a(href='/trip/' + val.id) Strona wycieczki &gt;&gt;
+    aside
+      section
+        h4 Promocje
+        div
+          h6 Gory wysokie
+          p 1-31 lutego
+          a(href='book') Rezerwuj &gt;&gt;
+          h6 Inne miejsce
+          p 1-31 lutego
+          a(href='book') Rezerwuj &gt;&gt;
+          h6 Też gdzieś
+          p 1-31 lutego
+          a(href='book') Rezerwuj &gt;&gt;
+      section.porady
+        h4 Porady
+        div
+          p Co zabrac na wycieczke?
+        div
+          p Kiedy najlepiej wyjechać?
+        div
+          p Jakie buty są najwygodniejsze?

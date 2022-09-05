@@ -1,0 +1,36 @@
+{
+  "name": "poprawaawww",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "export NODE_ENV=test && node ./node_modules/mocha/bin/mocha --recursive --timeout 120000 --exit",
+    "start": "nodemon app.js"
+  },
+  "devDependencies": {
+    "chromedriver": "^101.0.0",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "mocha": "^10.0.0",
+    "mocha-webdriver": "^0.2.9",
+    "nodemon": "^2.0.16",
+    "selenium-webdriver": "^4.2.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "chai": "^4.3.6",
+    "config": "^3.3.7",
+    "express": "^4.17.3",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.1",
+    "geckodriver": "^3.0.1",
+    "http-serve": "^1.0.1",
+    "npm-watch": "^0.11.0",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "pug": "^3.0.2",
+    "sequelize": "^6.20.1",
+    "sqlite3": "^5.0.8"
+  }
+}

@@ -1,0 +1,18 @@
+extends base.pug
+block content
+  p Zaloguj się!
+  each err in context.errors 
+    p(class='error')=err
+  form(action='' method='POST')
+    label(for='email') Email
+    br
+    div
+      input#email(type='email' name='email' value=context.form.email)
+      br
+    label(for='password') Hasło
+    br
+    div
+      input#password(type='password' name='password' value=context.form.password)
+      br
+    br
+    button#rezerwuj(type='submit' name='logIn') LogIn

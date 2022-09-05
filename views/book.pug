@@ -1,0 +1,27 @@
+extends base.pug
+block content
+  p Wycieczka #{ context.trip_id }
+  each err in context.errors 
+    p(class='error')=err
+  form(action='' method='POST')
+    label(for='first_name') First name
+    br
+    div
+      input#first_name(type='text' name='first_name' value=context.form.imie)
+      br
+    label(for='last_name') Last name
+    br
+    div
+      input#last_name(type='text' name='last_name' value=context.form.nazwisko)
+      br
+    label(for='email') Email
+    br
+    div
+      input#email(type='email' name='email' value=context.form.email)
+      br
+    label(for='liczba_miejsc') Ilosc miejsc
+    br
+    div
+      input#liczba_miejsc(type='number' name='liczba_miejsc' value=context.form.liczba_miejsc)
+      br
+    button#rezerwuj(type='submit' name='rezerwuj') Rezerwuj
