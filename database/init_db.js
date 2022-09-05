@@ -5,7 +5,6 @@ const saltRounds = 10;
 exports.initFunc = async (db) => {
   console.error('Trying to initialize database with test values...');
 
-  // Synchronizacja
   try {
     await db.sequelize.sync({ force: true });
     const miasto = await db.Wycieczka.create({

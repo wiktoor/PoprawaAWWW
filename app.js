@@ -228,12 +228,8 @@ getDb().then((db) => {
           req.session.regenerate((err) => {
             if (err) next(err);
 
-            // store user information in session, typically a user id
             req.session.user = form.email;
 
-            // save the session before redirection to ensure page
-            // load does not happen before session is saved
-            // eslint-disable-next-line no-shadow
             req.session.save((err) => {
               if (err) return next(err);
               res.redirect('/profile');
@@ -253,9 +249,6 @@ getDb().then((db) => {
     req.session.save((err) => {
       if (err) next(err);
 
-      // regenerate the session, which is good practice to help
-      // guard against forms of session fixation
-      // eslint-disable-next-line no-shadow
       req.session.regenerate((err) => {
         if (err) next(err);
         res.redirect('/main');
@@ -276,9 +269,8 @@ getDb().then((db) => {
     }
   });
 
-  // custom 404
   app.use((req, res) => {
-    res.status(404).send('<h1>Nie znaleziono strony o podanym adresie! </h1>'); // to sie wyswietla tylko jesli url sie nie dopasowal wczesniej - nie mozna nadpisywac send czy drugi send jest ignorowany?
+    res.status(404).send('<h1>Nie znaleziono strony o podanym adresie! </h1>');
   });
 
   app.listen(port, () => {
